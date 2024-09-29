@@ -9,8 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.marwa.compose1.network.ApiService
 import com.marwa.compose1.network.RetrofitClient
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
 
 class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
@@ -31,8 +29,6 @@ class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() 
         }
 
     }
-
-
 
     fun toggleFavorite(id: String) {
         val quotesList = state.toMutableList()
@@ -59,7 +55,6 @@ class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() 
         savedStateHandle.get<List<String>>("favorite_quotes")?.let { savedIds ->
             savedIds.forEach { quoteId -> this.find { it.id == quoteId }?.isFavorite = true }
         }
-
         return this
     }
 }
